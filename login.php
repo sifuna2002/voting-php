@@ -1,3 +1,20 @@
+<?php
+  //include database connection page
+  require("db_connect.php");
+  if(isset($_POST['login'])){
+    $email = $password = '';
+    
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    //prevent xss
+    $email=htmlspecialchars($email);
+    $password=htmlspecialchars($password);
+    echo"<p style='color:white'>zccnzknkznc </p>";
+  }else{
+    echo"<p style='color:white'>An error occured</p>";
+  }
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -86,7 +103,7 @@
                 </div>
                 <div class="hpanel" style="border-radius: 10px;">
                     <div class="panel-body" style="border-radius: 10px;">
-                        <form action="#" id="loginForm">
+                        <form action="#" method="post" id="loginForm" >
                             <div class="form-group">
                                 <label class="control-label" for="email">Email</label>
                                 <input type="email" placeholder="example@gmail.com" title="Please enter you email" required="" value="" name="email" id="email" class="form-control">
@@ -95,15 +112,11 @@
                             <div class="form-group">
                                 <label class="control-label" for="password">Password</label>
                                 <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
-                                <span class="help-block small">Yur strong password</span>
+                                <span class="help-block small">Your Password</span>
                             </div>
-                            <div class="checkbox login-checkbox">
-                                <label>
-										<input type="checkbox" class="i-checks"> Remember me </label>
-                                <p class="help-block small">(if this is a private computer)</p>
-                            </div>
-                            <button class="btn btn-success btn-block loginbtn">Login</button>
-                            <a class="btn btn-default btn-block" href="#">Register</a>
+                            
+                            <input type="submit" id="login" class="btn btn-success btn-block loginbtn" value="Login">
+                            <a class="btn btn-default btn-block" href="signup.php">Register</a>
                         </form>
                     </div>
                 </div>
@@ -112,7 +125,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                <p>Copyright © 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
+                <p>Copyright © 2022 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
             </div>
         </div>
     </div>
